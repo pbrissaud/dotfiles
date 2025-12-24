@@ -6,3 +6,4 @@ go
 helm
 kubernetes-cli
 starship
+zsh-autosuggestions

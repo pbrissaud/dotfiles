@@ -36,5 +36,8 @@ alias gd="fd"
 
 source $HOME/.zsh_override.zsh
 
+# pkg:zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # pkg:starship
 eval "$(starship init zsh)"
