@@ -1,0 +1,7 @@
+argocd
+bat
+fzf
+go
+helm
+kubernetes-cli
+starship
