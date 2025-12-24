@@ -39,6 +39,7 @@ source $HOME/.zsh_override.zsh
 # pkg:zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+bindkey '^[[1;3C' forward-word
 
 # pkg:starship
 eval "$(starship init zsh)"
