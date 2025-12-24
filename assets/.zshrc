@@ -7,6 +7,8 @@ source <(kubectl completion zsh)
 source <(helm completion zsh)
 # pkg:argocd
 source <(argocd completion zsh)
+# pkg:gh
+source <(gh completion -s zsh)
 
 # pkg:go
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$(go env GOPATH):$PATH
@@ -32,7 +34,7 @@ fd() {
 }
 alias gd="fd"
 
-source .zsh_override.zsh
+source $HOME/.zsh_override.zsh
 
 # pkg:starship
 eval "$(starship init zsh)"

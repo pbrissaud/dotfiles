@@ -1,6 +1,7 @@
 argocd
 bat
 fzf
+gh
 go
 helm
 kubernetes-cli
