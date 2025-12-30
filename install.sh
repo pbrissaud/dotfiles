@@ -31,15 +31,36 @@ if ! command -v brew &> /dev/null; then
     exit 1
 fi
 
-# Read packages from file and install them
-packages=$(grep -v '^$' "$PACKAGES_FILE" | tr '\n' ' ')
+# Separate installed from missing packages
+installed=()
+missing=()
 
-if [ -z "$packages" ]; then
-    echo -e "${YELLOW}⚠️  No packages to install${NC}"
+while IFS= read -r pkg; do
+    [ -z "$pkg" ] && continue
+    if brew list "$pkg" &>/dev/null; then
+        installed+=("$pkg")
+    else
+        missing+=("$pkg")
+    fi
+done < "$PACKAGES_FILE"
+
+echo -e "${GREEN}✓ Already installed (${#installed[@]}):${NC} ${installed[*]:-none}"
+echo -e "${YELLOW}⚠ Missing (${#missing[@]}):${NC} ${missing[*]:-none}"
+
+if [ ${#missing[@]} -gt 0 ]; then
+    echo ""
+    printf "Install missing packages? [y]es, [n]o: "
+    read -n 1 -r choice < /dev/tty
+    echo
+    
+    if [[ $choice =~ ^[Yy]$ ]]; then
+        brew install "${missing[@]}"
+        echo -e "${GREEN}✓ Packages installed${NC}"
+    else
+        echo -e "${YELLOW}⊘ Package installation skipped${NC}"
+    fi
 else
-    echo "Installing: $packages"
-    brew install $packages
-    echo -e "${GREEN}✓ Packages installed${NC}"
+    echo -e "${GREEN}✓ All packages already installed${NC}"
 fi
 
 # ============================================================================
