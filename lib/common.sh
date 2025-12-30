@@ -40,10 +40,16 @@ is_never_sync() {
 # Returns: s=skip, b=backup, r=replace
 ask_action() {
     local filename="$1"
-    read -p "  Action? [s]kip, [b]ackup+replace, [r]eplace: " -n 1 -r choice
-    echo
+    local choice
+    
+    if [ "$SYNC_MODE" = "export" ]; then
+        read -p "  Action? [s]kip, [r]eplace: " -n 1 -r choice < /dev/tty
+    else
+        read -p "  Action? [s]kip, [b]ackup+replace, [r]eplace: " -n 1 -r choice < /dev/tty
+    fi
+    echo >&2
     case $choice in
-        b|B) echo "b" ;;
+        b|B) [ "$SYNC_MODE" != "export" ] && echo "b" || echo "s" ;;
         r|R) echo "r" ;;
         *)   echo "s" ;;
     esac
@@ -160,7 +166,7 @@ count_results() {
     MISSING=0
 
     if [ -f "$results_file" ]; then
-        while IFS= read -r action; do
+        while IFS= read -r action; do 
             case $action in
                 COPIED) ((COPIED++)) ;;
                 BACKED_UP) ((BACKED_UP++)) ;;

@@ -6,6 +6,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ASSETS_DIR="$SCRIPT_DIR/assets"
 HOME_DIR="$HOME"
+SYNC_MODE="export"
 
 # Load common functions
 source "$SCRIPT_DIR/lib/common.sh"

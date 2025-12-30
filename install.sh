@@ -7,6 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGES_FILE="$SCRIPT_DIR/packages.txt"
 ASSETS_DIR="$SCRIPT_DIR/assets"
 HOME_DIR="$HOME"
+SYNC_MODE="install"
 
 # Load common functions
 source "$SCRIPT_DIR/lib/common.sh"
