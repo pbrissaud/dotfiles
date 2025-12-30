@@ -24,7 +24,7 @@ truncation_symbol = "…/"
 
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ]($style)'
-symbol = "  "
+symbol = " "
 style = "fg:#1C3A5E bg:#FCF392"
 
 [git_status]
@@ -44,6 +44,9 @@ symbol = " "
 [cmd_duration]
 format = "[  $duration ]($style)"
 style = "fg:bright-white bg:18"
+
+[fill]
+style = "fg:#999999"
 
 [character]
 success_symbol = '[ ➜](bold green) '

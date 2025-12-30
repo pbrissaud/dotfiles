@@ -16,8 +16,11 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$(go env GOPATH):$PATH
 # --- Git Aliases ---
 alias gs="git status"
 alias gcm="git commit -m"
-alias lm="git checkout main && git pull"
-alias gp="git pull && git push"
+alias gco="git checkout"
+alias lm="git checkout main && git pull --rebase"
+alias gp="git push"
+alias gpr="git pull --rebase"
+alias gcb="git checkout -b"
 alias ulc='git reset --soft HEAD~1'
 alias gst="git stash"
 alias pop="git stash pop"
