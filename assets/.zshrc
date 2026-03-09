@@ -33,7 +33,11 @@ alias cat="bat"
 # pkg:fzf
 fd() {
   preview="git diff $@ --color=always -- {-1}"
-  git diff $@ --name-only | fzf -m --ansi --preview $preview
+  git diff $@ --name-only | fzf -m --ansi \
+    --preview "$preview" \
+    --header 'Ctrl-A: stage | Ctrl-R: unstage | Tab: multi-select' \
+    --bind "ctrl-a:execute-silent(git add {+})+reload(git diff $@ --name-only)" \
+    --bind "ctrl-r:execute-silent(git restore --staged {+})+reload(git diff $@ --name-only)"
 }
 alias gd="fd"
 
