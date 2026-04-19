@@ -2,6 +2,7 @@ argocd
 bat
 fzf
 gh
+ghostty
 helm
 kubernetes-cli
 mise
