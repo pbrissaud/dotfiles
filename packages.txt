@@ -1,3 +1,6 @@
+` comments |
+<name>` anywhere in the `assets/` tree (or in any tracked config file). The pre-commit hook regenerates `packages.txt` automatically on each commit.
+<name>` comment anywhere in `assets/`. The pre-commit hook regenerates `packages.txt` automatically.
 argocd
 bat
 fzf
