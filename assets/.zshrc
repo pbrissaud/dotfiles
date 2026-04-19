@@ -45,5 +45,8 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey '^[[1;3C' forward-word
 
+# pkg:mise
+eval "$(mise activate zsh)"
+
 # pkg:starship
 eval "$(starship init zsh)"
