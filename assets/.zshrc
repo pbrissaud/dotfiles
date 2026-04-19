@@ -10,9 +10,6 @@ source <(argocd completion zsh)
 # pkg:gh
 source <(gh completion -s zsh)
 
-# pkg:go
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$(go env GOPATH):$PATH
-
 # --- Git Aliases ---
 alias gs="git status"
 alias gcm="git commit -m"
