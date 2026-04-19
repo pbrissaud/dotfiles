@@ -1,13 +1,13 @@
 autoload -Uz compinit
 compinit
 
-# pkg:kubernetes-cli
+# pkg:brew=kubernetes-cli
 source <(kubectl completion zsh)
-# pkg:helm
+# pkg:brew=helm
 source <(helm completion zsh)
-# pkg:argocd
+# pkg:brew=argocd
 source <(argocd completion zsh)
-# pkg:gh
+# pkg:brew=gh
 source <(gh completion -s zsh)
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -25,11 +25,11 @@ alias gst="git stash"
 alias pop="git stash pop"
 alias gstapp="git stash apply"
 
-# pkg:bat
+# pkg:brew=bat
 alias cat="bat"
 
 # --- Git Diff with FZF ---
-# pkg:fzf
+# pkg:brew=fzf
 fd() {
   preview="git diff $@ --color=always -- {-1}"
   git diff $@ --name-only | fzf -m --ansi \
@@ -42,13 +42,13 @@ alias gd="fd"
 
 source $HOME/.zsh_override.zsh
 
-# pkg:zsh-autosuggestions
+# pkg:brew=zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey '^[[1;3C' forward-word
 
-# pkg:mise
+# pkg:brew=mise
 eval "$(mise activate zsh)"
 
-# pkg:starship
+# pkg:brew=starship
 eval "$(starship init zsh)"

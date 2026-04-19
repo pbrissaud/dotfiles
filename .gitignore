@@ -1,0 +1,6 @@
+.backup/
+.dotfiles_backup/
+.DS_Store
+*.swp
+*.swo
+*.pkg
